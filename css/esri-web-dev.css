@@ -112,7 +112,7 @@ header {
 
 #main-banner {
   background-color: #DDD;
-  background-image: url('../img/_main-banner.jpg');
+  background-image: url('../img/main-banner.jpg');
   background-position: center center;
   background-size: contain;
   height: 65%;
@@ -226,7 +226,7 @@ header {
 }
 
 #dev-facts {
-  background-image: url('../img/_dev-facts.jpg');
+  background-image: url('../img/dev-facts.jpg');
   background-size: contain;
   background-position: center right;
   padding: 8rem 0;
