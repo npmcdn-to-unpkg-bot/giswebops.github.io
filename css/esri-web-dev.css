@@ -115,7 +115,8 @@ header {
   background-image: url('../img/main-banner.jpg');
   background-position: center center;
   background-size: contain;
-  height: 65%;
+  height: 70%;
+  min-height: 450px;
   text-align: center;
 }
 #main-banner .ctn-container {
@@ -145,7 +146,6 @@ header {
   }
   #banner-header {
     background-color: rgba(255,255,255,0.8);
-    margin: 32% auto 0 auto;
   }
   #banner-header h1 {
     font-size: 55px;
