@@ -1,56 +1,225 @@
----
-layout: default
-title: GISWebOps
-section: content
----
-<div class="grid-33 push-66">
-  <p><a href="//github.com/GISWebOps/" class="btn btn-blue btn-right">View on Github</a></p>
-</div>
-<div class="clear"></div>
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html><!--<![endif]-->
+<head>
+	<title>Esri Web Dev</title>
 
-<!-- Start repos -->    
-<div class="grid-100">
-  <h2>Coming soon!</h2>
-</div>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+  <link href="css/centurion-grid.css" rel="stylesheet" type="text/css" />
+  <link href="css/esri-web-dev.css" rel="stylesheet" type="text/css" />
 
-<!--
-<div class="grid-33">
-  <div class="repo-section">
-    <header class="repo-header">
-      <h2>Name of Repository</h2>
-    </header>
-    <article class="repo-content">
-      <p><a href="//github.com/GISWebOps/______" class="repo-link">github.com/GISWebOps/______</a></p>
-      <p>Text or explanation about the public repository goes here.</p>
-    </article>
+
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script>
+	// Create smooth click and scroll based on in page navigation
+	$(function () {
+	  $('a[href*=#]:not([href=#])').click(function () {
+	    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+	      if (target.length) {
+	        $('html,body').animate({
+	          scrollTop: target.offset().top - 100
+	        }, 400);
+	        return false;
+	      }
+	    }
+	  });
+	});
+	function scrollCenterContent(itemContainer, offset) {
+	    $(itemContainer).each(function(i, section) {
+	        var content = $(section).parent(), h = $(content).height() - $(section).height() - offset;
+	        $(section).css("margin-top", h / 2);
+	    });
+	}
+
+	$(document).ready(function() {
+			scrollCenterContent("#banner-header", 100), $(window).resize(scrollCenterContent("#banner-header", 100));
+			scrollCenterContent(".proj-overlay", 0), $(window).resize(scrollCenterContent(".proj-overlay", 0));
+	});
+	</script>
+
+</head>
+<body>
+	<a name="top"></a>
+  <header class="clearfix">
+    <div class="ctn-container">
+      <div class="ctn-grid-100">
+        <a href="#top" id="dev-logo">Esri Web Dev</a>
+				<span class="social-icons">
+					<a href="https://twitter.com/esriwebdev" class="social-twitter"></a>
+					<a href="https://www.facebook.com/esrigis" class="social-facebook"></a>
+					<a href="https://github.com/esri" class="social-github"></a>
+				</span>
+      </div>
+    </div>
+  </header>
+
+  <div id="main-banner" class="clearfix">
+    <div class="ctn-container">
+        <div id="banner-header" class="ctn-grid-14 ctn-tablet-8 ctn-mobile-6 ctn-grid-center">
+          <h1>We are Web Dev</h1>
+          <h2>Blending next generation web &amp; mapping.</h2>
+        </div>
+    </div>
   </div>
-</div>
 
-<div class="grid-33">
-  <div class="repo-section">
-    <header class="repo-header">
-      <h2>Name of Repository</h2>
-    </header>
-    <article class="repo-content">
-      <p><a href="//github.com/GISWebOps/______" class="repo-link">github.com/GISWebOps/______</a></p>
-      <p>Text or explanation about the public repository goes here.</p>
-    </article>
+
+  <div id="what-we-do" class="page-section clearfix">
+    <div class="ctn-container">
+
+      <div class="ctn-grid-20 ctn-grid-center">
+        <h2>What We Do</h2>
+        <p>We prefer to "not" wake up to the sunrise, but we work late into the night to envision and build the next web application that inspires. We dream in code and rarely read the writing on the wall. Our forte is blending next generation web and mapping technologies that answer complex questions with simple, yet elegant web solutions.</p>
+				<p><a href="#project-list">See our stuff. What have you built lately? &darr;</a></p>
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="grid-33">
-  <div class="repo-section">
-    <header class="repo-header">
-      <h2>Name of Repository</h2>
-    </header>
-    <article class="repo-content">
-      <p><a href="//github.com/GISWebOps/______" class="repo-link">github.com/GISWebOps/______</a></p>
-      <p>Text or explanation about the public repository goes here.</p>
-    </article>
+
+
+  <div id="project-list" class="page-section clearfix">
+    <div class="ctn-container ctn-container-full">
+
+      <div class="ctn-grid-16 ctn-tablet-7 ctn-mobile-6">
+        <a href="http://www.urbanobservatory.org/" class="project-box" target="_blank" style="background-image: url('img/projects/proj-urban-obervatory.jpg');">
+					<span class="proj-overlay">
+						<h2>Urban Observatory</h2>
+	          <p>View Project &rarr;</p>
+					</span>
+        </a>
+      </div>
+      <div class="ctn-grid-8 ctn-tablet-5 ctn-mobile-6">
+        <a href="http://www.arcgis.com/features" class="project-box" target="_blank" style="background-image: url('img/projects/proj-arcgis-features.png');">
+          <span class="proj-overlay">
+						<h2>ArcGIS Features</h2>
+						<p>View Project &rarr;</p>
+					</span>
+        </a>
+      </div>
+
+
+      <div class="ctn-grid-8 ctn-tablet-5 ctn-mobile-6">
+        <a href="http://webapps-cdn.esri.com/Apps/StepByStep/" class="project-box" target="_blank" style="background-image: url('img/projects/proj-stepbystep.png');">
+					<span class="proj-overlay">
+						<h2>Step by Step</h2>
+	          <p>View Project &rarr;</p>
+					</span>
+        </a>
+      </div>
+      <div class="ctn-grid-16 ctn-tablet-7 ctn-mobile-6">
+        <a href="http://www.esri.com" class="project-box" target="_blank" style="background-image: url('img/projects/proj-esricom.png');">
+					<span class="proj-overlay">
+						<h2>Esri.com</h2>
+	          <p>View Project &rarr;</p>
+					</span>
+        </a>
+      </div>
+
+
+      <div class="ctn-grid-16 ctn-tablet-7 ctn-mobile-6">
+        <a href="http://www.esri.com/data/esri_data/ziptapestry" class="project-box" target="_blank" style="background-image: url('img/projects/proj-ziptapestry.png');">
+					<span class="proj-overlay">
+						<h2>Zip Tapestry</h2>
+	          <p>View Project &rarr;</p>
+					</span>
+        </a>
+      </div>
+      <div class="ctn-grid-8 ctn-tablet-5 ctn-mobile-6">
+        <a href="http://survey123.esri.com/" class="project-box" style="background-image: url('img/projects/proj-survey123.png');" target="_blank">
+					<span class="proj-overlay">
+						<h2>Survey 123</h2>
+	          <p>View Project &rarr;</p>
+					</span>
+        </a>
+      </div>
+
+
+      <div class="ctn-grid-8 ctn-tablet-5 ctn-mobile-6">
+        <a href="http://e380.com" class="project-box" target="_blank" style="background-image: url('img/projects/proj-e380.png');">
+					<span class="proj-overlay">
+						<h2>E380</h2>
+	          <p>View Project &rarr;</p>
+					</span>
+        </a>
+      </div>
+      <div class="ctn-grid-16 ctn-tablet-7 ctn-mobile-6">
+        <a href="#" class="project-box" target="_blank" style="background-image: url('http://placehold.it/1600x1000&text=Mapman%20Experience');">
+					<span class="proj-overlay">
+						<h2>Map Map Experience</h2>
+	          <p>Coming soon</p>
+					</span>
+        </a>
+      </div>
+
+    </div>
   </div>
-</div>
--->
 
 
 
-<!-- end of repos -->
+  <div id="dev-facts" class="page-section clearfix">
+    <div class="ctn-container">
+
+      <div class="ctn-grid-24">
+        <h2>Developer Facts</h2>
+      </div>
+
+      <div class="ctn-grid-12">
+        <ul>
+          <li>16 gallons of coffee are consumed per web app.</li>
+          <li>We support blazer Fridays.</li>
+					<li>May 14th is developer appreciation day <small>(it is also the 14th of May)</small>.</li>
+					<li>Our mascot is a <a href="http://en.wikipedia.org/wiki/Platypus">platypus</a>; they have "webbed" feet.</li>
+					<li>We make sites with old pinball parts.</li>
+					<li>Another random fact that means nothing and you still read it.</li>
+        </ul>
+      </div>
+
+      <div class="ctn-grid-12">
+        <ul class="pad-right">
+          <li>We believe in bearded developers and dragons.</li>
+          <li>We work out daily on our jumpshots and weekly on our Nerf aiming skills.</li>
+					<li>One Mountain Dew was consumed in the making of this page.</li>
+					<li>We test everything; we rarley speck check.</li>
+        </ul>
+      </div>
+
+			<div class="clear"></div>
+      <p><a href="http://github.com/Esri/" class="btn btn-blue btn-center">Esri on Github</a></p>
+
+    </div>
+  </div>
+
+
+
+  <div id="meet-the-team" class="page-section clearfix">
+    <div class="ctn-container">
+
+      <div class="ctn-grid-12 ctn-tablet-6 ctn-grid-center">
+        <h2>Meet the Team</h2>
+      </div>
+
+			<h3>Picture coming soon.</h3>
+
+    </div>
+  </div>
+
+
+
+  <footer id="footer" class="clearfix">
+    <div class="ctn-container">
+      <div class="ctn-grid-16">
+        <p>&copy; Copyright 2010-2015 Esri, Inc. |
+        <a href="//www.esri.com/legal/privacy">Privacy</a> |
+        <a href="//www.esri.com/legal/software-license">Legal</a></p>
+      </div>
+      <div class="ctn-grid-8">
+        <a href="http://www.esri.com" class="esri-logo">Esri</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
