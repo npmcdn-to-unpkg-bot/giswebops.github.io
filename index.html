@@ -10,52 +10,63 @@
   <link href="css/centurion-grid.css" rel="stylesheet" type="text/css" />
   <link href="css/esri-web-dev.css" rel="stylesheet" type="text/css" />
 
-  <link rel="apple-touch-icon" sizes="57x57" href="/img/icons/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/img/icons/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/img/icons/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/icons/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/img/icons/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/img/icons/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/img/icons/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/img/icons/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="/img/icons/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/img/icons/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png">
-  <link rel="manifest" href="/img/icons/manifest.json">
+  <link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="img/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="img/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="img/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="img/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="img/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
+  <link rel="manifest" href="img/icons/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="/img/icons/ms-icon-144x144.png">
+  <meta name="msapplication-TileImage" content="img/icons/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
 
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
 	<script>
-	// Create smooth click and scroll based on in page navigation
-	$(function () {
-	  $('a[href*=#]:not([href=#])').click(function () {
-	    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-	      var target = $(this.hash);
-	      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-	      if (target.length) {
-	        $('html,body').animate({
-	          scrollTop: target.offset().top - 100
-	        }, 400);
-	        return false;
-	      }
-	    }
-	  });
-	});
-	function scrollCenterContent(itemContainer, offset) {
-	    $(itemContainer).each(function(i, section) {
-	        var content = $(section).parent(), h = $(content).height() - $(section).height() - offset;
-	        $(section).css("margin-top", h / 2);
-	    });
-	}
+	
+		// Create smooth click and scroll based on in page navigation
+		$(function () {
+		  $('a[href*=#]:not([href=#])').click(function () {
+		    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+		      var target = $(this.hash);
+		      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+		      if (target.length) {
+		        $('html,body').animate({
+		          scrollTop: target.offset().top - 100
+		        }, 400);
+		        return false;
+		      }
+		    }
+		  });
+		});
 
-	$(document).ready(function() {
-			scrollCenterContent("#banner-header", 100), $(window).resize(scrollCenterContent("#banner-header", 100));
-			scrollCenterContent(".proj-overlay", 0), $(window).resize(scrollCenterContent(".proj-overlay", 0));
-	});
+		function scrollCenterContent(itemContainer, childContainer, offset) {
+		  $(itemContainer).each(function(i, section) {
+		    var content = $(section).children(childContainer)[0];
+		    var h = ($(section).height() - $(content).height()) - offset;
+		    $(content).css('margin-top', (h / 2));
+		  });
+		}
+
+		$(document).ready(function() {
+			scrollCenterContent("#main-banner", '.ctn-container', 0);
+			scrollCenterContent(".project-box", '.proj-overlay', -20);
+
+			$('#banner-header').addClass('visible');
+		});
+
+		window.onresize = function(event) {
+			scrollCenterContent("#main-banner", '.ctn-container', 0);
+			scrollCenterContent(".project-box", '.proj-overlay', -20);
+		};
+
 	</script>
 
 </head>
@@ -163,7 +174,7 @@
         </a>
       </div>
       <div class="ctn-grid-16 ctn-tablet-7 ctn-mobile-6">
-        <a href="#" class="project-box" target="_blank" style="background-image: url('http://placehold.it/1600x1000&text=Mapman%20Experience');">
+        <a href="#" class="project-box" target="_blank" style="background-image: url('img/projects/proj-mapman.png');">
 					<span class="proj-overlay">
 						<h2>Mapman Experience</h2>
 	          <p>Coming soon</p>
@@ -190,7 +201,7 @@
 					<li>June 14th is developer appreciation day <small>(it is also the 14th of June)</small>.</li>
 					<li>Our mascot is a <a href="http://en.wikipedia.org/wiki/Platypus">platypus</a>; they have "webbed" feet.</li>
 					<li>We work out daily on our jump shots and weekly on our Nerf aiming skills.</li>
-					
+
         </ul>
       </div>
 

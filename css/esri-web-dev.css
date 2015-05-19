@@ -28,6 +28,8 @@ h1, h2, h3 {
 a {
   color: #2a7433;
   text-decoration: none;
+  -webkit-transition: background 120ms linear;
+  transition: background 120ms linear;
 }
 a:hover {
   color: #000;
@@ -119,14 +121,24 @@ header {
   min-height: 450px;
   text-align: center;
 }
-#main-banner .ctn-container {
+/*#main-banner .ctn-container {
   height: 100%;
-}
+}*/
 
 #banner-header {
   background-color: rgba(255,255,255,0.5);
   box-sizing: border-box;
   padding: 2rem 1rem;
+
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-in;
+  -moz-transition: opacity 1s ease-in;
+  -o-transition: opacity 1s ease-in;
+  -ms-transition: opacity 1s ease-in;
+  transition: opacity 1s ease-in;
+}
+#banner-header.visible {
+  opacity: 1;
 }
 #banner-header h1 {
   color: #222;
@@ -184,8 +196,8 @@ header {
 
 #project-list {}
 .project-box {
-  background-color: #efefef;
-  /*background-image: url('../img/____');*/
+  position: relative;
+  background-color: rgba(222, 41, 0, 0);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -197,12 +209,27 @@ header {
   min-height: 250px;
   text-align: center;
   text-decoration: none;
+
+  -webkit-transition: background-color 0.8s;
+  -moz-transition: background-color 0.8s;
+  -ms-transition: background-color 0.8s;
+  -o-transition: background-color 0.8s;
+  transition: background-color 0.8s;
+  -webkit-backface-visibility: hidden;
 }
 .project-box:hover {
-  background-color: #DE2900;
-  background-image: none !important;
+  background-color: rgba(222, 41, 0, 1);;
+  background-image: transparent !important;
   /*background-image: url('../img/____');*/
 }
+.project-box:before {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-color: inherit;
+  content: ' ';
+}
+
+
 .project-box h2 {
   color: #FFF;
   font-size: 32px;
@@ -217,6 +244,7 @@ header {
 }
 .project-box:hover .proj-overlay {
   display: block;
+  position: relative;
 }
 
 
