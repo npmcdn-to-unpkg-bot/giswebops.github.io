@@ -30,7 +30,7 @@
 
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
 	<script>
-	
+
 		// Create smooth click and scroll based on in page navigation
 		$(function () {
 		  $('a[href*=#]:not([href=#])').click(function () {
@@ -55,9 +55,19 @@
 		  });
 		}
 
+		function zoomInBanner(zoomItem, first, second){
+			$(zoomItem).animate({ 'background-size' : first }, 8000)
+				.animate({ 'background-size' : second }, 8000,
+				function(){
+					setTimeout(zoomInBanner(zoomItem, first, second), 4000);
+				});
+		}
+
 		$(document).ready(function() {
 			scrollCenterContent("#main-banner", '.ctn-container', 0);
 			scrollCenterContent(".project-box", '.proj-overlay', -20);
+
+			zoomInBanner('#main-banner', '65%', '55%');
 
 			$('#banner-header').addClass('visible');
 		});
@@ -68,6 +78,13 @@
 		};
 
 	</script>
+	<style>
+		#main-banner {
+			background-size:55% auto;
+			background-position:center 0;
+		}
+	</style>
+
 
 </head>
 <body>
@@ -100,8 +117,7 @@
 
       <div class="ctn-grid-20 ctn-grid-center">
         <h2>What We Do</h2>
-        <p>We prefer to "not" wake up to the sunrise, but we work late into the night to envision and build the next web application that inspires. We dream in code and rarely read the writing on the wall. Our forte is blending next generation web and mapping technologies that answer complex questions with simple, yet elegant web solutions.</p>
-<!-- 				<p><a href="#project-list">See our stuff. What have you built lately? &darr;</a></p> -->
+        <p>We dream in code and rarely read the writing on the wall. Preferring to "not" wake up to the sunrise, but work late into the night to envision and build the next web application that inspires. Our forte is blending next generation web and mapping technologies that answer complex questions with simple, yet elegant web solutions..</p>
       </div>
     </div>
   </div>
@@ -196,22 +212,17 @@
 
       <div class="ctn-grid-12">
         <ul>
-          <li>Urban Observatory was built on 16 gallons of coffee, 14 dozen donuts, 12 pizzas, and we lost a shoe.</li>
+          <li>Urban Observatory is featured in exhibits and museums worldwide and was built on 16 gallons of coffee, 14 dozen donuts, 12 pizzas, and a plate of quinoa.</li>
           <li>We do taco Wednesday's &hellip; Tuesday's are too obvious.</li>
 					<li>June 14th is developer appreciation day <small>(it is also the 14th of June)</small>.</li>
-					<li>Our mascot is a <a href="http://en.wikipedia.org/wiki/Platypus">platypus</a>; they have "webbed" feet.</li>
-					<li>We work out daily on our jump shots and weekly on our Nerf aiming skills.</li>
-
         </ul>
       </div>
 
       <div class="ctn-grid-12">
         <ul class="pad-right">
           <li>We believe in bearded developers and dragons.</li>
-					<li>One Mountain Dew was consumed in the making of this page.</li>
 					<li>Think outside; forget the box &hellip; just think outside.</li>
 					<li>We test everything; we rarley speck check.</li>
-					<li>We're disruptive but well mannered.</li>
         </ul>
       </div>
 

@@ -255,8 +255,8 @@ header {
 
 #dev-facts {
   background-image: url('../img/dev-facts.jpg');
-  background-size: contain;
-  background-position: center right;
+  background-size: 75%;
+  background-position: bottom right;
   padding: 8rem 0;
   text-align: center;
 }
