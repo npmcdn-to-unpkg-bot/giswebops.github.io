@@ -279,9 +279,12 @@ header {
 
 #meet-the-team {
   background-color: #3b8fc4;
-  /*background-image: url('../img/_meet-the-team.jpg');*/
+  background-image: url('../img/meet-the-team.png');
+  background-position: center 160%;
+  background-size: inherit;
+
   padding: 2rem 0;
-  /*min-height: 600px;*/
+  min-height: 670px;
   text-align: center;
 }
 #meet-the-team h2 {
