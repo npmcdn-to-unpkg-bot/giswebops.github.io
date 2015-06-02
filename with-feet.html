@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html><!--<![endif]-->
+<head>
+	<title>Esri WebDev</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+  <link href="css/centurion-grid.css" rel="stylesheet" type="text/css" />
+  <link href="css/esri-web-dev.css" rel="stylesheet" type="text/css" />
+
+  <link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="img/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="img/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="img/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="img/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="img/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
+  <link rel="manifest" href="img/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="img/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script>
+
+		// Create smooth click and scroll based on in page navigation
+		$(function () {
+		  $('a[href*=#]:not([href=#])').click(function () {
+		    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+		      var target = $(this.hash);
+		      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+		      if (target.length) {
+		        $('html,body').animate({
+		          scrollTop: target.offset().top - 100
+		        }, 400);
+		        return false;
+		      }
+		    }
+		  });
+		});
+
+		function scrollCenterContent(itemContainer, childContainer, offset) {
+		  $(itemContainer).each(function(i, section) {
+		    var content = $(section).children(childContainer)[0];
+		    var h = ($(section).height() - $(content).height()) - offset;
+		    $(content).css('margin-top', (h / 2));
+		  });
+		}
+
+		function zoomInBanner(zoomItem, first, second){
+			$(zoomItem).animate({ 'background-size' : first }, 8000)
+				.animate({ 'background-size' : second }, 8000,
+				function(){
+					setTimeout(zoomInBanner(zoomItem, first, second), 4000);
+				});
+		}
+
+		$(document).ready(function() {
+			scrollCenterContent("#main-banner", '.ctn-container', 0);
+			scrollCenterContent(".project-box", '.proj-overlay', -20);
+
+			//zoomInBanner('#main-banner', '65%', '55%');
+
+			$('#banner-header').addClass('visible');
+
+
+			$('.link_effect').mouseover(function(event) {
+				var team_member = $(this).data('team');
+				$('#' + team_member).addClass('animate-member');
+			});
+			$('.link_effect').mouseout(function(event) {
+				var team_member = $(this).data('team');
+				$('#' + team_member).removeClass('animate-member');
+			});
+
+			// $(".link_effect").on({
+			//
+			// 	mouseenter: function() {
+			// 		console.log($(this).data('team'));
+			// 		var team_member = $(this).data('team');
+			//
+		  //   },
+		  //   mouseleave: function() {
+			// 		//console.log($(this).data('team'));
+			// 		var team_member = $(this).data('team');
+			// 		$('#' + team_member).show();
+		  //   }
+			// });​
+
+		});
+
+		window.onresize = function(event) {
+			scrollCenterContent("#main-banner", '.ctn-container', 0);
+			scrollCenterContent(".project-box", '.proj-overlay', -20);
+		};
+
+
+
+
+	</script>
+	<style>
+		#main-banner {
+			background-size:55% auto;
+			background-position:center 0;
+		}
+
+
+		#meet-the-team { background-image: none; }
+
+		.link_effect {
+			text-decoration: none;
+		}
+
+		.link_effect:hover .image_effect {
+			border: 6px solid hotpink;
+		}
+
+		.image_effect {
+			border-radius: 50%;
+			margin-bottom: 12px;
+			box-sizing: border-box;
+			border: 0px solid hotpink;
+			-webkit-transition-duration: 0.25s;
+			transition-duration: 0.25s;
+			-webkit-transition-property: border;
+			transition-property: border;
+			max-height: 180px;
+			max-width: 180px;
+		}
+
+		#team-shots {
+			min-height: 400px;
+			position: relative;
+		}
+		#team-shots h3 {
+			position: absolute;
+			left: 0;
+			top: 35%;
+			text-align: center;
+			width: 100%;
+		}
+		#team-shots .team-member {
+			display: none;
+			-webkit-animation-duration:1s;
+		  -moz-animation-duration:0.8s;
+		  -o-animation-duration:0.8s;
+		  animation-duration:0.8s;
+		  -webkit-animation-fill-mode:both;
+		  -moz-animation-fill-mode:both;
+		  -o-animation-fill-mode:both;
+		  animation-fill-mode:both;
+			z-index: 10;
+		}
+		#team-shots .team-member.animate-member {
+			display: block;
+			margin: 0 auto;
+			-webkit-animation-name: tada;
+		  -moz-animation-name: tada;
+		  -o-animation-name: tada;
+		  animation-name: tada;
+		}
+
+
+		@-webkit-keyframes tada {
+		0% {
+		-webkit-transform:scale(1)
+		}
+		10%, 20% {
+		-webkit-transform:scale(0.9) rotate(-3deg)
+		}
+		30%, 50%, 70%, 90% {
+		-webkit-transform:scale(1.1) rotate(3deg)
+		}
+		40%, 60%, 80% {
+		-webkit-transform:scale(1.1) rotate(-3deg)
+		}
+		100% {
+		-webkit-transform:scale(1) rotate(0)
+		}
+		}
+		@-moz-keyframes tada {
+		0% {
+		-moz-transform:scale(1)
+		}
+		10%, 20% {
+		-moz-transform:scale(0.9) rotate(-3deg)
+		}
+		30%, 50%, 70%, 90% {
+		-moz-transform:scale(1.1) rotate(3deg)
+		}
+		40%, 60%, 80% {
+		-moz-transform:scale(1.1) rotate(-3deg)
+		}
+		100% {
+		-moz-transform:scale(1) rotate(0)
+		}
+		}
+		@-o-keyframes tada {
+		0% {
+		-o-transform:scale(1)
+		}
+		10%, 20% {
+		-o-transform:scale(0.9) rotate(-3deg)
+		}
+		30%, 50%, 70%, 90% {
+		-o-transform:scale(1.1) rotate(3deg)
+		}
+		40%, 60%, 80% {
+		-o-transform:scale(1.1) rotate(-3deg)
+		}
+		100% {
+		-o-transform:scale(1) rotate(0)
+		}
+		}
+		@keyframes tada {
+		0% {
+		transform:scale(1)
+		}
+		10%, 20% {
+		transform:scale(0.9) rotate(-3deg)
+		}
+		30%, 50%, 70%, 90% {
+		transform:scale(1.1) rotate(3deg)
+		}
+		40%, 60%, 80% {
+		transform:scale(1.1) rotate(-3deg)
+		}
+		100% {
+		transform:scale(1) rotate(0)
+		}
+		}
+		.tada {
+		  -webkit-animation-name:tada;
+		  -moz-animation-name:tada;
+		  -o-animation-name:tada;
+		  animation-name:tada
+		}
+
+	</style>
+
+
+</head>
+<body>
+	<a name="top"></a>
+  <header class="clearfix">
+    <div class="ctn-container">
+      <div class="ctn-grid-24">
+        <a href="#top" id="dev-logo">Esri WebDev</a>
+				<span class="social-icons">
+					<a href="https://twitter.com/esriwebdev" class="social-twitter"></a>
+					<a href="https://www.facebook.com/esri.webdevelopment?fref=ts" class="social-facebook"></a>
+					<a href="https://github.com/esri" class="social-github"></a>
+				</span>
+      </div>
+    </div>
+  </header>
+
+  <div id="main-banner" class="clearfix">
+    <div class="ctn-container">
+        <div id="banner-header" class="ctn-grid-14 ctn-tablet-8 ctn-mobile-6 ctn-grid-center">
+          <h1>We are WebDev</h1>
+          <h2>Blending next generation web &amp; mapping.</h2>
+        </div>
+    </div>
+  </div>
+
+
+
+  <div id="meet-the-team" class="page-section clearfix">
+    <div class="ctn-container">
+
+      <div class="ctn-grid-12 ctn-tablet-6 ctn-grid-center">
+        <h2>Meet the Team</h2>
+      </div>
+
+			<div id="team-shots">
+				<h3>Hover over shoes for more.</h3>
+
+				<img src="http://placehold.it/500x350&text=one" id="image1" class="team-member" />
+				<img src="http://placehold.it/500x350&text=two" id="image2" class="team-member" />
+				<img src="http://placehold.it/500x350&text=three" id="image3" class="team-member" />
+			</div>
+
+			<div id="team-shoes">
+				<a class="link_effect" href="#" title="____" data-team="image1">
+				  <img class="image_effect" src="https://placeimg.com/180/180/nature/grayscale">
+				</a>
+				<a class="link_effect" href="#" title="____" data-team="image2">
+				  <img class="image_effect" src="https://placeimg.com/180/180/nature/grayscale">
+				</a>
+				<a class="link_effect" href="#" title="____" data-team="image3">
+				  <img class="image_effect" src="https://placeimg.com/180/180/nature/grayscale">
+				</a>
+			</div>
+
+
+
+    </div>
+  </div>
+
+
+
+  <footer id="footer" class="clearfix">
+    <div class="ctn-container">
+      <div class="ctn-grid-16">
+        <p>&copy; Copyright 2010-2015 Esri, Inc. |
+        <a href="//www.esri.com/legal/privacy">Privacy</a> |
+        <a href="//www.esri.com/legal/software-license">Legal</a></p>
+      </div>
+      <div class="ctn-grid-8">
+        <a href="http://www.esri.com" class="esri-logo">Esri</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

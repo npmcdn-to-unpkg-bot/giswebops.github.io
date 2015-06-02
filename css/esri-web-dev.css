@@ -273,9 +273,43 @@ header {
   margin-top: 2rem;
 }
 
-.pad-right li:last-of-type {
-  padding-right: 6rem;
+
+#community {
+  border-top: 1px solid #b2b2b2;
+  padding: 5rem 0;
 }
+#community h2 {
+  font-size: 38px;
+  margin-top: 100px;
+}
+#community h3 {
+  font-size: 28px;
+  text-align: center;
+}
+#community h3 a {
+  font-weight: bold;
+}
+
+.responsive-img {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  height: auto;
+  padding: 20px 0;
+  width: 100%;
+}
+.responsive-img.img-3-up {
+  float: left;
+  height: auto;
+  width: 36%;
+}
+.responsive-img.img-3-up:nth-child(2) {
+  padding: 0 10px;
+  width: 28%;
+}
+
+
 
 #meet-the-team {
   background-color: #3b8fc4;
