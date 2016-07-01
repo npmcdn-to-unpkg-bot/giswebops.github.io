@@ -6,10 +6,6 @@
 <head>
 	<title>Esri WebDev</title>
 
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
-  <link href="css/centurion-grid.css" rel="stylesheet" type="text/css" />
-  <link href="css/esri-web-dev.css" rel="stylesheet" type="text/css" />
-
   <link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="img/icons/apple-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-icon-72x72.png">
@@ -28,70 +24,16 @@
   <meta name="msapplication-TileImage" content="img/icons/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
 
-	<script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
-	<script>
-
-		// Create smooth click and scroll based on in page navigation
-		$(function () {
-		  $('a[href*=#]:not([href=#])').click(function () {
-		    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-		      var target = $(this.hash);
-		      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-		      if (target.length) {
-		        $('html,body').animate({
-		          scrollTop: target.offset().top - 100
-		        }, 400);
-		        return false;
-		      }
-		    }
-		  });
-		});
-
-		function scrollCenterContent(itemContainer, childContainer, offset) {
-		  $(itemContainer).each(function(i, section) {
-		    var content = $(section).children(childContainer)[0];
-		    var h = ($(section).height() - $(content).height()) - offset;
-		    $(content).css('margin-top', (h / 2));
-		  });
-		}
-
-		function zoomInBanner(zoomItem, first, second){
-			$(zoomItem).animate({ 'background-size' : first }, 8000)
-				.animate({ 'background-size' : second }, 8000,
-				function(){
-					setTimeout(zoomInBanner(zoomItem, first, second), 4000);
-				});
-		}
-
-		$(document).ready(function() {
-			scrollCenterContent("#main-banner", '.ctn-container', 0);
-			scrollCenterContent(".project-box", '.proj-overlay', -20);
-
-			//zoomInBanner('#main-banner', '65%', '55%');
-
-			$('#banner-header').addClass('visible');
-		});
-
-		window.onresize = function(event) {
-			scrollCenterContent("#main-banner", '.ctn-container', 0);
-			scrollCenterContent(".project-box", '.proj-overlay', -20);
-		};
-
-	</script>
-	<style>
-		#main-banner {
-			background-size:55% auto;
-			background-position:center 0;
-		}
-	</style>
-
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+	<link href="css/centurion-grid.css" rel="stylesheet" type="text/css" />
+	<link href="css/esri-web-dev.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
 	<a name="top"></a>
   <header class="clearfix">
     <div class="ctn-container">
-      <div class="ctn-grid-24">
+			<div class="ctn-grid-24">
         <a href="#top" id="dev-logo">Esri WebDev</a>
 				<span class="social-icons">
 					<a href="https://twitter.com/esriwebdev" class="social-twitter"></a>
@@ -104,21 +46,24 @@
 
   <div id="main-banner" class="clearfix">
     <div class="ctn-container">
-        <div id="banner-header" class="ctn-grid-14 ctn-tablet-8 ctn-mobile-6 ctn-grid-center">
+			<div class="ctn-row ctn-middle ctn-center">
+        <div id="banner-header" class="ctn-grid-14 ctn-tablet-8 ctn-mobile-6">
           <h1>We are WebDev</h1>
           <h2>Blending next generation web &amp; mapping.</h2>
-        </div>
+				</div>
+			</div>
     </div>
   </div>
 
 
   <div id="what-we-do" class="page-section clearfix">
     <div class="ctn-container">
-
-      <div class="ctn-grid-20 ctn-grid-center">
-        <h2>What We Do</h2>
-        <p>We dream in code and rarely read the writing on the wall. Preferring to "not" wake up to the sunrise, but work late into the night to envision and build the next web application that inspires. Our forte is blending next generation web and mapping technologies that answer complex questions with simple, yet elegant web solutions..</p>
-      </div>
+			<div class="ctn-row ctn-middle ctn-center">
+	      <div class="ctn-grid-20">
+	        <h2>What We Do</h2>
+	        <p>We dream in code and rarely read the writing on the wall. Preferring to "not" wake up to the sunrise, but work late into the night to envision and build the next web application that inspires. Our forte is blending next generation web and mapping technologies that answer complex questions with simple, yet elegant web solutions..</p>
+	      </div>
+			</div>
     </div>
   </div>
 
@@ -127,76 +72,83 @@
   <div id="project-list" class="page-section clearfix">
     <div class="ctn-container ctn-container-full">
 
-      <div class="ctn-grid-16 ctn-tablet-7 ctn-mobile-6">
-        <a href="http://www.urbanobservatory.org/" class="project-box" target="_blank" style="background-image: url('img/projects/proj-urban-obervatory.jpg');">
-					<span class="proj-overlay">
+      <!-- <div class="ctn-grid-12"></div> -->
+
+			<div class="project-list">
+				<div class="project-sizer"></div>
+
+
+			  <a href="http://www.esri.com/earth" class="project-box project-box--height2" style="background-image: url('img/projects/proj-arcgis-earth.png')">
+					<div class="project-info">
+						<h2>ArcGIS Earth</h2>
+						<p>View project &rarr;</p>
+					</div>
+			  </a>
+				<a href="http://www.esri.com/products/drone2map" class="project-box project-box--height2" style="background-image: url('img/projects/proj-drone2map.png')">
+					<div class="project-info">
+						<h2>Drone2Map</h2>
+						<p>View project &rarr;</p>
+					</div>
+				</a>
+
+				<a href="http://www.esri.com/smart-communities" class="project-box project-box--height2 project-box--width2" style="background-image: url('img/projects/proj-smart-communities.png')">
+					<div class="project-info">
+						<h2>Smart Communities</h2>
+						<p>View project &rarr;</p>
+					</div>
+				</a>
+
+				<a href="http://www.urbanobservatory.org/" class="project-box project-box--height2" style="background-image: url('img/projects/proj-urban-obervatory.jpg')">
+					<div class="project-info">
 						<h2>Urban Observatory</h2>
-	          <p>View Project &rarr;</p>
-					</span>
-        </a>
-      </div>
-      <div class="ctn-grid-8 ctn-tablet-5 ctn-mobile-6">
-        <a href="http://www.arcgis.com/features" class="project-box" target="_blank" style="background-image: url('img/projects/proj-arcgis-features.png');">
-          <span class="proj-overlay">
-						<h2>ArcGIS Features</h2>
-						<p>View Project &rarr;</p>
-					</span>
-        </a>
-      </div>
+						<p>View project &rarr;</p>
+					</div>
+			  </a>
+			  <a href="http://www.esri.com/data/esri_data/ziptapestry" class="project-box project-box--width2" style="background-image: url('img/projects/proj-ziptapestry.png')">
+					<div class="project-info">
+						<h2>Zip Code Lookup</h2>
+						<p>View project &rarr;</p>
+					</div>
+			  </a>
 
-
-      <div class="ctn-grid-8 ctn-tablet-5 ctn-mobile-6">
-        <a href="http://webapps-cdn.esri.com/Apps/StepByStep/" class="project-box" target="_blank" style="background-image: url('img/projects/proj-stepbystep.png');">
-					<span class="proj-overlay">
-						<h2>Step by Step Map App</h2>
-	          <p>View Project &rarr;</p>
-					</span>
-        </a>
-      </div>
-      <div class="ctn-grid-16 ctn-tablet-7 ctn-mobile-6">
-        <a href="http://www.esri.com" class="project-box" target="_blank" style="background-image: url('img/projects/proj-esricom.png');">
-					<span class="proj-overlay">
-						<h2>Esri.com</h2>
-	          <p>View Project &rarr;</p>
-					</span>
-        </a>
-      </div>
-
-
-      <div class="ctn-grid-16 ctn-tablet-7 ctn-mobile-6">
-        <a href="http://www.esri.com/data/esri_data/ziptapestry" class="project-box" target="_blank" style="background-image: url('img/projects/proj-ziptapestry.png');">
-					<span class="proj-overlay">
-						<h2>Zipcode Lookup</h2>
-	          <p>View Project &rarr;</p>
-					</span>
-        </a>
-      </div>
-      <div class="ctn-grid-8 ctn-tablet-5 ctn-mobile-6">
-        <a href="http://survey123.esri.com/" class="project-box" style="background-image: url('img/projects/proj-survey123.png');" target="_blank">
-					<span class="proj-overlay">
-						<h2>Survey 123</h2>
-	          <p>View Project &rarr;</p>
-					</span>
-        </a>
-      </div>
-
-
-      <div class="ctn-grid-8 ctn-tablet-5 ctn-mobile-6">
-        <a href="http://e380.com" class="project-box" target="_blank" style="background-image: url('img/projects/proj-e380.png');">
-					<span class="proj-overlay">
+				<a href="http://video.esri.com" class="project-box project-box--height2" style="background-image: url('img/projects/proj-e380.png')">
+					<div class="project-info">
 						<h2>E380</h2>
-	          <p>View Project &rarr;</p>
-					</span>
-        </a>
-      </div>
-      <div class="ctn-grid-16 ctn-tablet-7 ctn-mobile-6">
-        <a href="#" class="project-box" target="_blank" style="background-image: url('img/projects/proj-mapman.png'); background-position: center 40%;">
-					<span class="proj-overlay">
-						<h2>Mapman Experience</h2>
-	          <p>Coming soon</p>
-					</span>
-        </a>
-      </div>
+						<p>View project &rarr;</p>
+					</div>
+				</a>
+
+				<a href="https://green-infrastructure.esri.com/AssetFinder/index.html" class="project-box project-box--width2 project-box--height2" style="background-image: url('img/projects/proj-green-infrastructure.png')">
+					<div class="project-info">
+						<h2>Green Infrastructure</h2>
+						<p>View project &rarr;</p>
+					</div>
+				</a>
+
+
+
+				<a href="http://www.esri.com" class="project-box" style="background-image: url('img/projects/proj-esricom.png')">
+					<div class="project-info">
+						<h2>Esri.com</h2>
+						<p>View project &rarr;</p>
+					</div>
+				</a>
+
+				<a href="http://survey123.esri.com/" class="project-box" style="background-image: url('img/projects/proj-survey123.png')">
+					<div class="project-info">
+						<h2>Survey123</h2>
+						<p>View project &rarr;</p>
+					</div>
+				</a>
+
+				<!-- <a href="_________" class="project-box">
+					<div class="project-info" style="background-image: url('img/projects/______')">
+						<h2>_________</h2>
+						<p>View project &rarr;</p>
+					</div>
+				</a> -->
+
+			</div>
 
     </div>
   </div>
@@ -205,32 +157,32 @@
 
   <div id="dev-facts" class="page-section clearfix">
     <div class="ctn-container">
+			<div class="ctn-row ctn-middle ctn-center">
+	      <div class="ctn-grid-24">
+	        <h2>WebDev Facts</h2>
+	      </div>
 
-      <div class="ctn-grid-24">
-        <h2>WebDev Facts</h2>
-      </div>
+	      <div class="ctn-grid-12">
+	        <ul>
+						<li>We started five years ago as a team of 3, now we are 20+ developers building exciting web experiences for Esri and the dev community.</li>
+						<li>Urban Observatory is featured in exhibits and museums worldwide and was built on 16 gallons of coffee, 14 dozen donuts, 12 pizzas, and a plate of quinoa.</li>
+						<li>The Zipcode Lookup app was featured on the front page of Time.com, Wall Street Journal, Fast Company and reached over 61 million views in 6 months.</li>
+	        </ul>
+	      </div>
 
-      <div class="ctn-grid-12">
-        <ul>
-					<li>We started five years ago as a team of 3, now we are 20+ developers building exciting web experiences for Esri and the dev community.</li>
-					<li>Urban Observatory is featured in exhibits and museums worldwide and was built on 16 gallons of coffee, 14 dozen donuts, 12 pizzas, and a plate of quinoa.</li>
-					<li>We believe in bearded developers and dragons.</li>
-					<li>The Zipcode Lookup app was featured on the front page of Time.com, Wall Street Journal, Fast Company and reached over 61 million views in 6 months.</li>
-        </ul>
-      </div>
+	      <div class="ctn-grid-12">
+	        <ul class="pad-right">
+						<li>We built more customer facing apps in 2014 than the amount of stripes on a Zebra. Yes, 44.</li>
+						<li>We believe in bearded developers and dragons.</li>
+						<li>Think outside; forget the box &hellip; just think outside.</li>
+						<li>Sometimes we take our show on the road!<br />
+							<a href="http://lanyrd.com/profile/esriwebdev/">See upcoming web conferences we're speaking at.</a></li>
+	        </ul>
+	      </div>
 
-      <div class="ctn-grid-12">
-        <ul class="pad-right">
-					<li>We built more customer facing apps in 2014 than the amount of stripes on a Zebra. Yes, 44.</li>
-					<li>Think outside; forget the box &hellip; just think outside.</li>
-					<li>Sometimes we take our show on the road!<br />
-						<a href="http://lanyrd.com/profile/esriwebdev/">See upcoming web conferences we're speaking at.</a></li>
-        </ul>
-      </div>
-
-			<div class="clear"></div>
-      <p><a href="http://github.com/Esri/" class="btn btn-blue btn-center">Esri on Github</a></p>
-
+				<div class="clear"></div>
+	      <p><a href="http://github.com/Esri/" class="btn btn-blue btn-center">Esri on Github</a></p>
+			</div>
     </div>
   </div>
 
@@ -238,23 +190,18 @@
 	<div id="community" class="page-section clearfix">
     <div class="ctn-container">
 
+			<div class="ctn-row ctn-middle ctn-center">
+				<div class="ctn-grid-12 ctn-tablet-6">
+					<h2>Development Community</h2>
+					<p>Esri WebDev is actively engaged in the developer community, organizing code camps throughout the Inland Empire and LA, and featured speakers at development conferences across the globe, such as Qcon, WebVisions, GIANT, Front End Design Con, Future of Web Design, IA Summits, and our very own Esri International Developer Summit.</p>
 
-			<div class="ctn-grid-12 ctn-tablet-6">
-				<h2>Development Community</h2>
-				<p>Esri WebDev is actively engaged in the developer community, organizing code camps throughout the Inland Empire and LA, and featured speakers at development conferences across the globe, such as Qcon, WebVisions, GIANT, Front End Design Con, Future of Web Design, IA Summits, and our very own Esri International Developer Summit.</p>
+					<p><a href="http://lanyrd.com/profile/esriwebdev/">See us at upcoming events</a> or follow us Twitter <a href="http://twitter.com/EsriWebDev">@EsriWebDev</a></p>
+				</div>
 
-				<p><a href="http://lanyrd.com/profile/esriwebdev/">See us at upcoming events</a> or follow us Twitter <a href="http://twitter.com/EsriWebDev">@EsriWebDev</a></p>
+				<div class="ctn-grid-12 ctn-tablet-6">
+					<img src="img/community/community-1.jpg" alt="" class="responsive-img" />
+	      </div>
 			</div>
-
-			<div class="ctn-grid-12 ctn-tablet-6">
-				<img src="img/community/community-1.jpg" alt="" class="responsive-img" />
-      </div>
-
-			<!-- <div class="ctn-grid-24">
-				<img src="img/community/community-2.jpg" alt="" class="responsive-img img-3-up" />
-				<img src="img/community/community_webvisions.jpg" alt="" class="responsive-img img-3-up" />
-				<img src="img/community/community_dev-summit-2015.jpg" alt="" class="responsive-img img-3-up" />
-			</div> -->
     </div>
   </div>
 
@@ -262,10 +209,11 @@
 
   <div id="meet-the-team" class="page-section clearfix">
     <div class="ctn-container">
-
-      <div class="ctn-grid-12 ctn-tablet-6 ctn-grid-center">
-        <h2>Meet the Team</h2>
-      </div>
+			<div class="ctn-row ctn-center">
+	      <div class="ctn-grid-12 ctn-tablet-6">
+	        <h2>Meet the Team</h2>
+	      </div>
+			</div>
 
     </div>
   </div>
@@ -274,16 +222,35 @@
 
   <footer id="footer" class="clearfix">
     <div class="ctn-container">
-      <div class="ctn-grid-16">
-        <p>&copy; Copyright 2010-2015 Esri, Inc. |
-        <a href="//www.esri.com/legal/privacy">Privacy</a> |
-        <a href="//www.esri.com/legal/software-license">Legal</a></p>
-      </div>
-      <div class="ctn-grid-8">
-        <a href="http://www.esri.com" class="esri-logo">Esri</a>
-      </div>
+			<div class="ctn-row">
+	      <div class="ctn-grid-16">
+	        <p>&copy; Copyright 2010-2015 Esri, Inc. |
+	        <a href="//www.esri.com/legal/privacy">Privacy</a> |
+	        <a href="//www.esri.com/legal/software-license">Legal</a></p>
+	      </div>
+	      <div class="ctn-grid-8">
+	        <a href="http://www.esri.com" class="esri-logo">Esri</a>
+	      </div>
+			</div>
     </div>
   </footer>
+
+
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="https://npmcdn.com/packery@2.1/dist/packery.pkgd.min.js"></script>
+	<script src="js/esri-web-dev.js" type="text/javascript"></script>
+
+	<script>
+		var elem = document.querySelector('.project-list');
+		var pckry = new Packery( elem, {
+			// options
+			itemSelector: '.project-box',
+			rowHeight: '.project-sizer',
+			// percentPosition: true,
+			gutter: 0
+		});
+	</script>
+
 
 </body>
 </html>
